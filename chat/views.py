@@ -9,6 +9,11 @@ def roomView(request):
     room_no = request.POST['room_no']
     name = request.POST['name']
     messages = []
-    for eachobj in ChatModel.objects.filter(room_no=room_no):
-        messages.append(eachobj.message)
+    try:
+        for eachobj in ChatModel.objects.filter(room_no=room_no).all():
+            messages.append(eachobj.message)
+            
+    except Exception as e:
+        print(e)
+
     return render(request, 'room.html', {'room_no': room_no, 'name': name, 'messages': messages})

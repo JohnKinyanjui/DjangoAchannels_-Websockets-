@@ -56,6 +56,6 @@
   chatSocket.onmessage = function(e){
     const data = JSON.parse(e.data)
     console.log(data)
-    // document.querySelector('#messagescontainer').innerHTML += '<div id="lefttext">'+data.message+'</div>'+'<br/><br/>'
+    document.querySelector('#messagescontainer').innerHTML += '<div id="lefttext">'+data.message+'</div>'+'<br/><br/>'
   }
 </script>
